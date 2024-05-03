@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 65vh; /* Para centrar verticalmente */
+    height: 60vh; /* Para centrar verticalmente */
     text-align: center; /* Alineación de texto */
     width: 40%; /* Ajusta el tamaño del ancho según tus necesidades */
     margin: 0 auto;
@@ -42,7 +42,7 @@
 }
 
 img {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 /* Estilos para centrar los elementos */
@@ -51,7 +51,7 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 30vh; /* Reduce la altura de la contenedor */
+    height: 35vh; /* Reduce la altura de la contenedor */
     text-align: center;
 }
 
@@ -114,4 +114,12 @@ img {
 /* Cambia el color de fondo al pasar sobre el botón */
 .play-button:hover {
     background-color: #0056b3; /* Un azul más oscuro al pasar sobre el botón */
+}
+
+.elapsed-time {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
 }
