@@ -12,7 +12,7 @@ const Hangman = ({ words }: HangmanProps) => {
     const [timerRunning, setTimerRunning] = useState(false);
 
     useEffect(() => {
-        let intervalId: NodeJS.Timeout;
+        let intervalId: NodeJS.Timeout | undefined;
 
         if (timerRunning) {
             intervalId = setInterval(() => {
@@ -21,7 +21,9 @@ const Hangman = ({ words }: HangmanProps) => {
             console.log("Temporizador iniciado");
         }
 
-        return () => clearInterval(intervalId);
+        return () => {
+            if (intervalId) clearInterval(intervalId);
+        };
     }, [timerRunning]);
 
     useEffect(() => {
@@ -37,7 +39,7 @@ const Hangman = ({ words }: HangmanProps) => {
 
     const displayWord = selectedWord
         .split("")
-        .map((letter, index) =>
+        .map((letter) =>
             guessedLetters.includes(letter) ? letter : "_"
         );
 
@@ -78,12 +80,7 @@ const Hangman = ({ words }: HangmanProps) => {
             />
             {(displayWord.join("") === selectedWord || errorCount > 5) && (
                 <button 
-                    onClick={() => {
-                        restartGame();
-                        setSelectedWord(
-                            words[Math.floor(Math.random() * words.length)]
-                        );
-                    }}
+                    onClick={restartGame}
                     className="new-word-button"
                 >
                     Select New Word

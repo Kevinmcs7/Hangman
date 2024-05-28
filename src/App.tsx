@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Hangman from './components/Hangman';
 import Welcome from './components/Welcome';
 
